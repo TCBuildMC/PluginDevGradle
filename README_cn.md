@@ -46,18 +46,17 @@ plugins {
 
 ## TODO
 ### 已完成
-- [x] Commonly used maven repositories
-- [x] Commonly used dependencies/ libs
-- [x] Automatically setup Java version
-- [x] Kotlin/ Scala/ Groovy support
+- [x] 常用 Maven 仓库
+- [x] 常用依赖
+- [x] 自动设置 Java 的版本兼容
+- [x] 其他 JVM 语言支持
 
 ### 高优先级
-- [ ] Run server
-- [ ] Plugin metadata (description) validate/ setup
+- [ ] 运行服务器
+- [ ] 插件描述文件生成检查
 
 ### 低优先级
-- [ ] Custom jar relocate and shade
-- [ ] Paperweight integration
-- [ ] Setup plugin **Internals**
-- [ ] Gradle 7.x support
-- [ ] and more...
+- [ ] 自定义 jar relocate 和 shadow
+- [ ] Paperweight 集成
+- [ ] NMS 支持
+- [ ] Gradle 7.x 支持
