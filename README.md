@@ -27,7 +27,7 @@ resolutionStrategy {
     eachPlugin {
         switch (requested.id.id) {
             case "xyz.tcbuildmc.minecraft.plugin.gradle": {
-                useModule "com.github.TCBuildMC:PluginDevGradle:${requested.version}"
+                useModule "com.github.TCBuildMC.PluginDevGradle:PluginDevGradle:${requested.version}"
                 break
             }
         }
