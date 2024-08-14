@@ -13,7 +13,7 @@ class PluginDevGradleExtension {
         this.project = project
     }
 
-    RepositoryExtension repositories = new RepositoryExtension(project.repositories)
+    RepositoryExtension repository = new RepositoryExtension(project.repositories)
     LanguageExtension language = new LanguageExtension()
     DependencyExtension dependency = new DependencyExtension()
 
