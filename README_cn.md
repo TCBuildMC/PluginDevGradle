@@ -1,19 +1,19 @@
 [![](https://jitpack.io/v/TCBuildMC/PluginDevGradle.svg)](https://jitpack.io/#TCBuildMC/PluginDevGradle)
 
-English | [中文](./README_cn.md)
+[English](./README.md) | 中文
 
 # PluginDevGradle
-The newer/ refactored version of [CurtainGradle](https://github.com/TCBuildMC/CurtainGradle/).
+[CurtainGradle](https://github.com/TCBuildMC/CurtainGradle/) 的重构版
 
-## Highlights
-- Designs for Minecraft plugin development (Absolutely it is).
-- Built in support for Bukkit (and its fork) API, BungeeCord (and its fork) API and Velocity API.
-- Helps developers spend less time configuring/ writing Gradle build scripts.
-- Supports Java 8+ and Gradle 8+ at least.
+## 特点
+- 为了 MC 插件开发设计（dddd）
+- 提供  及其下游，BungeeCord 及其下游，Velocity API 支持
+- 让插件开发者不用花太多时间在 Gradle 构建脚本上
+- 支持 Java 8+ 和 Gradle 8+
 
-## Usage
-### Quick start
-- `settings.gradle`: 
+## 用法
+### 快速开始
+- `settings.gradle`:
 ```gradle
 pluginManagement {
     repositories {
@@ -37,7 +37,7 @@ resolutionStrategy {
 }
 ```
 
-- `build.gradle`: 
+- `build.gradle`:
 ```gradle
 plugins {
     id "xyz.tcbuildmc.minecraft.plugin.gradle" version "{VERSION}"
@@ -45,17 +45,17 @@ plugins {
 ```
 
 ## TODO
-### Completed
+### 已完成
 - [x] Commonly used maven repositories
 - [x] Commonly used dependencies/ libs
 - [x] Automatically setup Java version
 - [x] Kotlin/ Scala/ Groovy support
 
-### High priority
+### 高优先级
 - [ ] Run server
 - [ ] Plugin metadata (description) validate/ setup
 
-### Low priority
+### 低优先级
 - [ ] Custom jar relocate and shade
 - [ ] Paperweight integration
 - [ ] Setup plugin **Internals**
