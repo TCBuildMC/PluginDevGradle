@@ -18,7 +18,7 @@ class PluginDevGradleExtension {
     DependencyExtension dependency = new DependencyExtension()
 
     def repositories(Action<? super RepositoryExtension> action) {
-        action.execute repositories
+        action.execute repository
     }
 
     def language(Action<? super LanguageExtension> action) {
