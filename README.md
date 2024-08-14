@@ -18,7 +18,18 @@ pluginManagement {
         // Other repositories...
         maven {
             name = "Jitpack"
-            url = "https://jitpack.io/
+            url = "https://jitpack.io/"
+        }
+    }
+}
+
+resolutionStrategy {
+    eachPlugin {
+        switch (requested.id.id) {
+            case "xyz.tcbuildmc.minecraft.plugin.gradle": {
+                useModule "com.github.TCBuildMC:PluginDevGradle:${requested.version}"
+                break
+            }
         }
     }
 }

@@ -89,7 +89,7 @@ gradlePlugin {
 
     plugins {
         pluginDevGradle {
-            id = "com.github.TCBuildMC.PluginDevGradle"
+            id = "xyz.tcbuildmc.minecraft.plugin.gradle"
             implementationClass = "xyz.tcbuildmc.minecraft.plugin.gradle.PluginDevGradle"
         }
     }
