@@ -44,6 +44,17 @@ class PluginDevGradle implements Plugin<Project> {
             configurations.named(JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME).get().extendsFrom it
             configurations.named(JavaPlugin.ANNOTATION_PROCESSOR_CONFIGURATION_NAME).get().extendsFrom it
         }
+
+        // For lombok
+        configurations.register("compileOnlyAP") {
+            configurations.named(JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME).get().extendsFrom it
+            configurations.named(JavaPlugin.ANNOTATION_PROCESSOR_CONFIGURATION_NAME).get().extendsFrom it
+        }
+
+        configurations.register("testCompileOnlyAP") {
+            configurations.named(JavaPlugin.TEST_COMPILE_ONLY_CONFIGURATION_NAME).get().extendsFrom it
+            configurations.named(JavaPlugin.TEST_ANNOTATION_PROCESSOR_CONFIGURATION_NAME).get().extendsFrom it
+        }
     }
 
     private void setupLanguageSupport(LanguageExtension language, Project project) {
