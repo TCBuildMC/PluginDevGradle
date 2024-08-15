@@ -23,14 +23,14 @@ pluginManagement {
             url = "https://jitpack.io/"
         }
     }
-}
 
-resolutionStrategy {
-    eachPlugin {
-        switch (requested.id.id) {
-            case "xyz.tcbuildmc.minecraft.plugin.gradle": {
-                useModule "com.github.TCBuildMC.PluginDevGradle:PluginDevGradle:${requested.version}"
-                break
+    resolutionStrategy {
+        eachPlugin {
+            switch (requested.id.id) {
+                case "xyz.tcbuildmc.minecraft.plugin.gradle": {
+                    useModule "com.github.TCBuildMC.PluginDevGradle:PluginDevGradle:${requested.version}"
+                    break
+                }
             }
         }
     }
