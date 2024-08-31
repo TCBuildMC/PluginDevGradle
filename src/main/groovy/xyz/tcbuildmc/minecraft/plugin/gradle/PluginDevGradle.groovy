@@ -9,6 +9,7 @@ import org.gradle.api.plugins.JavaLibraryPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.plugins.scala.ScalaPlugin
+import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.ide.visualstudio.plugins.VisualStudioPlugin
 import org.gradle.plugins.ide.eclipse.EclipsePlugin
@@ -18,6 +19,10 @@ import org.gradle.plugins.ide.idea.model.IdeaModel
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapperKt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import xyz.tcbuildmc.minecraft.plugin.gradle.lang.LanguageExtension
+import xyz.tcbuildmc.minecraft.plugin.gradle.metadata.MetadataExtension
+import xyz.tcbuildmc.minecraft.plugin.gradle.metadata.bukkit.BukkitChecker
+import xyz.tcbuildmc.minecraft.plugin.gradle.metadata.generate.YamlGenerator
+import xyz.tcbuildmc.minecraft.plugin.gradle.task.GenerateMetadataTask
 
 class PluginDevGradle implements Plugin<Project> {
     @Override
@@ -34,6 +39,7 @@ class PluginDevGradle implements Plugin<Project> {
         setupConfigurations(project.configurations)
 
         project.afterEvaluate {
+            setupTasks(project.tasks, extension.metadata)
             setupLanguageSupport(extension.language, project)
         }
     }
@@ -54,6 +60,18 @@ class PluginDevGradle implements Plugin<Project> {
         configurations.register("testCompileOnlyAP") {
             configurations.named(JavaPlugin.TEST_COMPILE_ONLY_CONFIGURATION_NAME).get().extendsFrom it
             configurations.named(JavaPlugin.TEST_ANNOTATION_PROCESSOR_CONFIGURATION_NAME).get().extendsFrom it
+        }
+    }
+
+    private void setupTasks(TaskContainer tasks, MetadataExtension extension) {
+        tasks.register("generateBukkitMetadata", GenerateMetadataTask) {
+            it.fileName = "plugin.yml"
+            it.metadata = extension.bukkitMetadata.toMap()
+            it.generator = YamlGenerator.INSTANCE
+
+            if (extension.check) {
+                it.checker = BukkitChecker.INSTANCE
+            }
         }
     }
 

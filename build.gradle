@@ -29,6 +29,9 @@ dependencies {
     annotationProcessor(compileOnly("org.projectlombok:lombok:1.18.34"))
 
     compileOnly "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20-RC2"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.17.2"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.2"
+    implementation "commons-io:commons-io:2.16.1"
 
     testImplementation platform("org.junit:junit-bom:5.11.0")
     testImplementation "org.junit.jupiter:junit-jupiter"
